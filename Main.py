@@ -10,8 +10,10 @@ else:
     pass
 
 funciones.relleno()
+funciones.crear_orden_de_cartuchos()
+funciones.eleccion_de_niveles()
 
-funciones.crear_orde_de_cartuchos()
 classes.escopeta.recargar(classes.escopeta.orden_de_cartuchos)
 print("orden de los cartuchos en esta ronda: ")
 print(str(classes.escopeta.orden_de_cartuchos))
+print(funciones.a)

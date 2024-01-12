@@ -48,7 +48,8 @@ class escopeta:
         self.disparos +=1
         print("¡Bang!")
     
-    def recargar(orden_de_cartuchos):
+    def recargar(self, orden_de_cartuchos):
+        escopeta.balas_vacias
         cont = 0
         cont2 = 0
         while (cont2 < escopeta.MaxBalas):
