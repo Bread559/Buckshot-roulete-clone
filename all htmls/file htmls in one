@@ -1,0 +1,155 @@
+import classes
+import time
+import random
+
+# Inicio general de las funciones; luego se organizará mejor
+
+def preguntas_de_nivel_personalizado():
+    print("Personalización de nivel: activada")
+    print("")
+    classes.escopeta.MaxBalas = int(input("¿Cuántas balas quieres ingresar? (máx. 8): "))
+    if classes.escopeta.MaxBalas > 8:
+        print("Nuestra escopeta solo puede cargar 8 balas!")
+        print("Se estableció 8 como las balas máximas en esta partida.")
+        classes.escopeta.MaxBalas = 8
+    else:
+        pass
+    classes.escopeta.balas_cargadas = int(input("¿Cuántas balas verdaderas quieres ingresar?: "))
+    if classes.escopeta.balas_cargadas > 6:
+        print("La cantidad máxima de balas cargadas es 6")
+        print("Se estableció 6 como la cantidad de balas cargadas.")
+        classes.escopeta.balas_cargadas = 6
+    else:
+        pass
+    classes.escopeta.balas_vacias = classes.escopeta.MaxBalas - classes.escopeta.balas_cargadas
+    print(f"Se rellenó el cargador con {classes.escopeta.balas_vacias} balas vacías")
+
+def relleno():
+    print("")
+    print("-----------------")
+    print("")
+    print("El juego inicia en 3 segundos!!!")
+    print("Inicia en 3")
+    time.sleep(1)
+    print("Inicia en 2")
+    time.sleep(1)
+    print("Inicia en 1")
+    time.sleep(1)
+    print("")
+    print("¡Pues que comience el juego!")
+    print("")
+
+def crear_orden_de_cartuchos():
+    global orden_de_cartuchos
+    classes.escopeta.orden_de_cartuchos = [False] * classes.escopeta.MaxBalas
+
+def ronda1():
+    global orden_de_cartuchos
+    global items
+    #global classes.escopeta.MaxBalas
+    classes.escopeta.MaxBalas = 3
+    print(classes.escopeta.MaxBalas)
+    items = None
+    crear_orden_de_cartuchos()
+    classes.escopeta.balas_cargadas =  random.randint(1,2)
+    classes.escopeta.balas_vacias = classes.escopeta.balas_cargadas -classes.escopeta.MaxBalas
+    classes.escopeta.recargar(self, classes.escopeta.orden_de_cartuchos)
+
+    
+
+def ronda2():
+    classes.escopeta.MaxBalas = 3
+    items = 2
+
+def ronda3():
+    classes.escopeta.MaxBalas = 3
+    items = 4
+
+def eleccion_de_niveles():
+    if classes.get.ronda == 1:
+        ronda1()
+    elif classes.get.ronda == 2:
+        ronda2()
+    else:
+        ronda3()#importaciones
+import random
+
+#inico general de las classes
+class get():
+    ronda= 1
+
+
+class color:
+    #Definir codigos ANSI para colores
+    RED = "\033[91m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+
+
+class jugador:
+    nombre = ""
+    desfibriladores = 0
+    esposas= 0
+    lupa = 0
+    cigarrillo = 0
+    cerveza = 0
+    cuhillo = 0
+
+class JugadorIA:
+    nombre = "Chirrete"
+    desfibriladores = 0
+    esposas= 0
+    lupa = 0
+    cigarrillo = 0
+    cerveza = 0
+    cuhillo = 0
+
+
+class escopeta:
+    MaxBalas = 0
+    balas_vacias = 0
+    balas_cargadas = 0
+    orden_de_cartuchos = [False]
+
+    def __init__(self, balas_vacias, balas_cargadas):
+        self.balas_vacias = balas_vacias
+        self.balas_cargadas = balas_cargadas
+    
+    def disparar(self):
+        self.disparos +=1
+        print("¡Bang!")
+    
+    def recargar(self, orden_de_cartuchos):
+        escopeta.balas_vacias
+        cont = 0
+        cont2 = 0
+        while (cont2 < escopeta.MaxBalas):
+            if (random.randint(1, (escopeta.balas_vacias + escopeta.balas_cargadas)) <= escopeta.balas_vacias):
+                orden_de_cartuchos[cont] = False
+                escopeta.balas_vacias -=1
+            else:
+                orden_de_cartuchos[cont] = True
+                escopeta.balas_cargadas -= 1
+            cont += 1
+            cont2 +=1
+        print("Se recargo la escopeta en un orden aleatorio") #importaciones
+import classes
+import funciones
+#----- Inicio del algoritmo -----
+classes.jugador.nombre = str(input("Cual es tu nombre? "))
+if (classes.jugador.nombre == "jefer"):
+    print("Hola jefer bienvenido")
+    funciones.preguntas_de_nivel_personalizado()
+else:
+    pass
+
+funciones.relleno()
+funciones.crear_orden_de_cartuchos()
+funciones.eleccion_de_niveles()
+
+classes.escopeta.recargar(classes.escopeta.orden_de_cartuchos)
+print("orden de los cartuchos en esta ronda: ")
+print(str(classes.escopeta.orden_de_cartuchos))
+print(funciones.a)
